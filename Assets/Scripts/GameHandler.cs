@@ -15,6 +15,9 @@ public class GameHandler : MonoBehaviour
     public RandomInfo randomInfo;
     public TextMeshProUGUI personalInfoText;
 
+    public NFTInteract nftInteract;
+    public string nftName;
+
     // Prefabs
     public GameObject securityMinigame;
 
@@ -55,7 +58,10 @@ public class GameHandler : MonoBehaviour
 
     public void StartMinigame()
     {
-        Debug.Log("Minigame #:" + minigame);
+        nftInteract = GameObject.Find(nftName).GetComponent<NFTInteract>();
+
+        // Debug.Log("Minigame #:" + minigame);
+        Debug.Log("NFT Name: " + nftName);
         
         if (minigame == 0)
         {
@@ -88,7 +94,7 @@ public class GameHandler : MonoBehaviour
         }
 
         Debug.Log("Game Won, next minigame #: " + minigame);
-
+        nftInteract.WonNFT();
     }
 
     public void FailGame()

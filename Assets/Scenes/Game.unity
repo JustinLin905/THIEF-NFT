@@ -433,6 +433,8 @@ MonoBehaviour:
   timerText: {fileID: 129650007}
   randomInfo: {fileID: 183616683}
   personalInfoText: {fileID: 1808335279}
+  nftInteract: {fileID: 0}
+  nftName: 
   securityMinigame: {fileID: 1725529899199991538, guid: 1886429d7daebe347bf033df46f7d9ca, type: 3}
 --- !u!1 &691964723
 GameObject:
@@ -1526,6 +1528,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1588791761}
   m_CullTransparentMesh: 1
+--- !u!114 &1649083117 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3999606270409915194, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
+  m_PrefabInstance: {fileID: 3999606269911382487}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &1754599013 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 3999606270321178546, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
@@ -2353,11 +2366,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3999606270321178547, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
       propertyPath: m_Name
-      value: NFT Example
+      value: Pi Rabbit
       objectReference: {fileID: 0}
     - target: {fileID: 3999606270321178558, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
       propertyPath: gameHandler
       value: 
       objectReference: {fileID: 183616685}
+    - target: {fileID: 3999606270321178558, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
+      propertyPath: stealButtonText
+      value: 
+      objectReference: {fileID: 1649083117}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 877b6d9eb4a8c9949b5fc21227988a72, type: 3}
