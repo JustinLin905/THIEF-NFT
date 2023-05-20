@@ -25,6 +25,8 @@ public class SecurityQuestionsMinigame : MonoBehaviour
 
     private int score;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -46,6 +48,8 @@ public class SecurityQuestionsMinigame : MonoBehaviour
         successFailText.text = "";
 
         score = 0;
+
+        // Debug.Log("City: " + randomInfo.personalInfo[1]);
     }
 
     private void Update()
@@ -62,7 +66,7 @@ public class SecurityQuestionsMinigame : MonoBehaviour
 
     private void SubmitText1(string text)
     {
-        if (text == randomInfo.personalInfo[1])
+        if (text.Trim() == randomInfo.personalInfo[1].Trim())
         {
             checkQuestion1.gameObject.SetActive(true);
             score += 1;
@@ -73,13 +77,12 @@ public class SecurityQuestionsMinigame : MonoBehaviour
             successFailText.text = "FAILED!";
             gameHandler.FailGame();
             StartCoroutine(ExitWindow());
-            
         }
     }
 
     private void SubmitText2(string text)
     {
-        if (text == randomInfo.personalInfo[2])
+        if (text.Trim() == randomInfo.personalInfo[2].Trim())
         {
             checkQuestion2.gameObject.SetActive(true);
             score += 1;
@@ -96,7 +99,7 @@ public class SecurityQuestionsMinigame : MonoBehaviour
 
     private void SubmitText3(string text)
     {
-        if (text == randomInfo.personalInfo[3])
+        if (text.Trim() == randomInfo.personalInfo[3].Trim())
         {
             checkQuestion3.gameObject.SetActive(true);
             score += 1;

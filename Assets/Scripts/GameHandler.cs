@@ -20,6 +20,10 @@ public class GameHandler : MonoBehaviour
 
     // Prefabs
     public GameObject securityMinigame;
+    public GameObject hackingMinigame;
+
+    // Array to store won NFTs
+    public List<string> stolenNFTs = new List<string>();
 
     private void Start()
     {
@@ -73,7 +77,10 @@ public class GameHandler : MonoBehaviour
         
         else if (minigame == 1)
         {
-            
+            // Instantiate Security Questions Minigame prefab
+            GameObject hackingGame = Instantiate(hackingMinigame);
+            hackingGame.transform.SetParent(GameObject.Find("Canvas").transform, false);
+            Debug.Log("Beginning Hacking Minigame");
         }
     }
 
@@ -87,7 +94,8 @@ public class GameHandler : MonoBehaviour
         }
         
         minigame += 1;
-        
+    
+  
         if (minigame >= 2)
         {
             minigame = 0;

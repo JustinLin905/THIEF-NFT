@@ -42,6 +42,14 @@ public class NFTInteract : MonoBehaviour
 
         stealButtonText.CrossFadeColor(new Color(255, 255, 255), 0.5f, false, false);
 
+        gameHandler.stolenNFTs.Add(gameObject.name);
+
+        // Loop thru gameHandler.stolenNFTs and debug log each element
+        foreach (string nft in gameHandler.stolenNFTs)
+        {
+            Debug.Log("NFT STORED! : " + nft);
+        }
+
         // Debug.Log("Button should be disabled");
     }
 }
