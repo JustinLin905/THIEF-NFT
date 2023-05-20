@@ -226,6 +226,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gameHandler: {fileID: 0}
   stealButton: {fileID: 3999606269804539475}
+  stealButtonText: {fileID: 3999606270409915194}
 --- !u!1 &3999606270409915196
 GameObject:
   m_ObjectHideFlags: 0
