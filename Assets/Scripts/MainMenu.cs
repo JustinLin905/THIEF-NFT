@@ -7,6 +7,8 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public TextMeshProUGUI scrollingText;
+    public Image fadeScreen;
+    public static bool heistReady = true;
     
     // Start is called before the first frame update
     void Start()
@@ -25,5 +27,28 @@ public class MainMenu : MonoBehaviour
             scrollingText.transform.position = new Vector2(1800, scrollingText.transform.position.y);
         }
     }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+    public void StartGame()
+    {
+        if (heistReady)
+        {
+            StartCoroutine(LoadGame());
+        }
+    }
+
+    IEnumerator LoadGame() {
+        // Enable fadeScreen object
+        fadeScreen.CrossFadeAlpha(0, 0, true);
+        fadeScreen.gameObject.SetActive(true);
+        fadeScreen.CrossFadeAlpha(1, 2, false);
+        yield return new WaitForSeconds(2);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Introduction");
+    }
 }
+
 
