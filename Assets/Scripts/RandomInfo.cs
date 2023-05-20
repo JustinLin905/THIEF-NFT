@@ -10,25 +10,21 @@ public class RandomInfo : MonoBehaviour
 
     public TextMeshProUGUI nameText;
     public TextMeshProUGUI personalInfoText;
-    
-    // Start is called before the first frame update
+
     void Start()
     {
-        // Set element 0 to a random name from Names.txt
         personalInfo[0] = GetRandomName();
 
-        // Debug.Log(personalInfo[0]);
-
-        // Generate random city
-        string[] cities = System.IO.File.ReadAllLines("Assets/Scripts/Cities.txt");
+        TextAsset citiesAsset = Resources.Load<TextAsset>("Cities");
+        string[] cities = citiesAsset.text.Split('\n');
         personalInfo[1] = cities[Random.Range(0, cities.Length)];
 
-        // Generate random food
-        string[] foods = System.IO.File.ReadAllLines("Assets/Scripts/Foods.txt");
+        TextAsset foodsAsset = Resources.Load<TextAsset>("Foods");
+        string[] foods = foodsAsset.text.Split('\n');
         personalInfo[2] = foods[Random.Range(0, foods.Length)];
 
-        // Generate random mother's maiden name
-        string[] maidenNames = System.IO.File.ReadAllLines("Assets/Scripts/MaidenNames.txt");
+        TextAsset maidenNamesAsset = Resources.Load<TextAsset>("MaidenNames");
+        string[] maidenNames = maidenNamesAsset.text.Split('\n');
         personalInfo[3] = maidenNames[Random.Range(0, maidenNames.Length)];
 
         nameText.text = personalInfo[0];
@@ -37,10 +33,8 @@ public class RandomInfo : MonoBehaviour
 
     string GetRandomName()
     {
-        // Read all lines from Names.txt, found in Assets/Scripts
-        string[] names = System.IO.File.ReadAllLines("Assets/Scripts/Names.txt");
-
-        // Return a random name from the array
+        TextAsset namesAsset = Resources.Load<TextAsset>("Names");
+        string[] names = namesAsset.text.Split('\n');
         return names[Random.Range(0, names.Length)];
     }
 }
