@@ -42,6 +42,6 @@ public class NFTInteract : MonoBehaviour
 
         stealButtonText.CrossFadeColor(new Color(255, 255, 255), 0.5f, false, false);
 
-        Debug.Log("Button should be disabled");
+        // Debug.Log("Button should be disabled");
     }
 }
