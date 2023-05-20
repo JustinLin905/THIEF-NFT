@@ -8,6 +8,7 @@ public class RandomInfo : MonoBehaviour
 {
     public string[] personalInfo = new string[4];
 
+    public TextMeshProUGUI nameText;
     public TextMeshProUGUI personalInfoText;
     
     // Start is called before the first frame update
@@ -29,12 +30,9 @@ public class RandomInfo : MonoBehaviour
         // Generate random mother's maiden name
         string[] maidenNames = System.IO.File.ReadAllLines("Assets/Scripts/MaidenNames.txt");
         personalInfo[3] = maidenNames[Random.Range(0, maidenNames.Length)];
-    }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        nameText.text = personalInfo[0];
+        personalInfoText.text = "<b>City:</b>\n" + personalInfo[1] + "\n\n" + "<b>Favorite Food:</b>\n" + personalInfo[2] + "\n\n" + "<b>Mother's Maiden Name:</b>\n" + personalInfo[3];
     }
 
     string GetRandomName()
