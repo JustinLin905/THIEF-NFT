@@ -20,7 +20,7 @@ public class MainMenu : MonoBehaviour
     void Update()
     {
         // Move scrolling text slowly to left
-        scrollingText.transform.Translate(Vector2.left * Time.deltaTime * 50);
+        scrollingText.transform.Translate(Vector2.left * Time.deltaTime * 100);
 
         if (scrollingText.transform.position.x < -1000)
         {
