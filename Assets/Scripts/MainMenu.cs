@@ -10,6 +10,7 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI walletText;
     public TextMeshProUGUI playText;
     public TextMeshProUGUI heistStatusText;
+    public TextMeshProUGUI loginButtonText;
     
     public Image fadeScreen;
     public static bool heistReady = true;
@@ -40,6 +41,11 @@ public class MainMenu : MonoBehaviour
         if (scrollingText.transform.position.x < -1000)
         {
             scrollingText.transform.position = new Vector2(1800, scrollingText.transform.position.y);
+        }
+
+        if (loggedIn)
+        {
+            loginButtonText.text = "LOGGED IN";
         }
     }
 
@@ -86,6 +92,7 @@ public class MainMenu : MonoBehaviour
     public void Login()
     {
         loggedIn = true;
+
     }
 
     IEnumerator LoadGame() {
