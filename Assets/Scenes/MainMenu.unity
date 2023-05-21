@@ -181,10 +181,10 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: HEIST IS NOW LIVE   //   HEIST IS NOW LIVE   //   HEIST IS NOW LIVE   //  
-    HEIST IS NOW LIVE   //   HEIST IS NOW LIVE   //   HEIST IS NOW LIVE   //   HEIST
-    IS NOW LIVE   //   HEIST IS NOW LIVE   //   HEIST IS NOW LIVE   //   HEIST IS
-    NOW LIVE
+  m_text: HEIST IS NOW LIVE AROUND THE WORLD   //   HEIST IS NOW LIVE AROUND THE
+    WORLD   //   HEIST IS NOW LIVE AROUND THE WORLD   //   HEIST IS NOW LIVE AROUND
+    THE WORLD   //   HEIST IS NOW LIVE AROUND THE WORLD   //   HEIST IS NOW LIVE
+    AROUND THE WORLD   //   HEIST IS NOW LIVE AROUND THE WORLD
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: e39ecd7efb85f894fa51bf07d12a5d56, type: 2}
   m_sharedMaterial: {fileID: -7238724098577122703, guid: e39ecd7efb85f894fa51bf07d12a5d56, type: 2}
