@@ -18,6 +18,8 @@ public class GameHandler : MonoBehaviour
     public NFTInteract nftInteract;
     public string nftName;
 
+    public GameObject timeOver;
+
     // Prefabs
     public GameObject securityMinigame;
     public GameObject hackingMinigame;
@@ -25,9 +27,13 @@ public class GameHandler : MonoBehaviour
     // Array to store won NFTs
     public List<string> stolenNFTs = new List<string>();
 
+    private bool inGame = false;
+    private bool timeout = false;
+
     private void Start()
     {
         currentTime = totalTime; // Initialize the remaining time
+        timeOver.SetActive(false);
     }
 
     private void Update()
@@ -42,6 +48,7 @@ public class GameHandler : MonoBehaviour
         {
             // Timer has reached 0, perform any necessary actions
             TimerExpired();
+            timeout = true;
         }
     }
 
@@ -56,16 +63,24 @@ public class GameHandler : MonoBehaviour
 
     private void TimerExpired()
     {
+        if (timeout == true) return;
+        
         // Perform actions when the timer reaches 0
         Debug.Log("Timer expired!");
+        timeOver.SetActive(true);
+        
     }
 
     public void StartMinigame()
     {
+        if (inGame) return;
+        
         nftInteract = GameObject.Find(nftName).GetComponent<NFTInteract>();
 
         // Debug.Log("Minigame #:" + minigame);
-        Debug.Log("NFT Name: " + nftName);
+        // Debug.Log("NFT Name: " + nftName);
+
+        inGame = true;
         
         if (minigame == 0)
         {
@@ -86,6 +101,8 @@ public class GameHandler : MonoBehaviour
 
     public void WinGame()
     {
+        inGame = false;
+        
         // Reset personal info text if minigame was 0
         if (minigame == 0)
         {
@@ -107,6 +124,12 @@ public class GameHandler : MonoBehaviour
 
     public void FailGame()
     {
+        inGame = false;
         personalInfoText.text = "<b>City:</b>\n" + randomInfo.personalInfo[1] + "\n\n" + "<b>Favorite Food:</b>\n" + randomInfo.personalInfo[2] + "\n\n" + "<b>Mother's Maiden Name:</b>\n" + randomInfo.personalInfo[3];
+    }
+
+    public void GoToWallet()
+    {
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Wallet");
     }
 }
