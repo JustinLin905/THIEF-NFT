@@ -19,6 +19,11 @@ public class GameHandler : MonoBehaviour
     public string nftName;
 
     public GameObject timeOver;
+    public GameObject page1;
+    public GameObject page2;
+    public GameObject page1Button;
+    public GameObject page2Button;
+    
 
     // Prefabs
     public GameObject securityMinigame;
@@ -34,6 +39,8 @@ public class GameHandler : MonoBehaviour
     {
         currentTime = totalTime; // Initialize the remaining time
         timeOver.SetActive(false);
+
+        DontDestroyOnLoad(this);
     }
 
     private void Update()
@@ -64,9 +71,10 @@ public class GameHandler : MonoBehaviour
     private void TimerExpired()
     {
         if (timeout == true) return;
-        
+
         // Perform actions when the timer reaches 0
-        Debug.Log("Timer expired!");
+        // Debug.Log("Timer expired!");
+        timerText.text = "0:00";
         MainMenu.heistReady = false;
         timeOver.SetActive(true);
         
@@ -133,4 +141,21 @@ public class GameHandler : MonoBehaviour
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene("Wallet");
     }
+
+    public void NextPage()
+    {
+        page1.SetActive(false);
+        page2.SetActive(true);
+        page2Button.SetActive(false);
+        page1Button.SetActive(true);
+    }
+
+    public void PreviousPage()
+    {
+        page1.SetActive(true);
+        page2.SetActive(false);
+        page2Button.SetActive(true);
+        page1Button.SetActive(false);
+    }
 }
+

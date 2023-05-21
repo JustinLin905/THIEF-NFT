@@ -9,14 +9,26 @@ public class MainMenu : MonoBehaviour
     public TextMeshProUGUI scrollingText;
     public TextMeshProUGUI walletText;
     public TextMeshProUGUI playText;
+    public TextMeshProUGUI heistStatusText;
+    
     public Image fadeScreen;
     public static bool heistReady = true;
-    public static bool loggedIn = false;
+    public static bool loggedIn;
+
+    // Static constructor
+    static MainMenu()
+    {
+        loggedIn = false;
+    }
     
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (!heistReady)
+        {
+            heistStatusText.text = "You've completed today's Heist! Keep an eye out for tomorrow's Heist!";
+            scrollingText.CrossFadeAlpha(0, 0, true);
+        } 
     }
 
     // Update is called once per frame

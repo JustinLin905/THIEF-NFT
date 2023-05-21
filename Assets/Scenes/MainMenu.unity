@@ -1196,6 +1196,7 @@ MonoBehaviour:
   scrollingText: {fileID: 217422190}
   walletText: {fileID: 1689385930}
   playText: {fileID: 1057074916}
+  heistStatusText: {fileID: 1543110962}
   fadeScreen: {fileID: 844093231}
 --- !u!4 &1331489687
 Transform:
