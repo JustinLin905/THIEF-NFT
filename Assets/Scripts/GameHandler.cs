@@ -67,6 +67,7 @@ public class GameHandler : MonoBehaviour
         
         // Perform actions when the timer reaches 0
         Debug.Log("Timer expired!");
+        MainMenu.heistReady = false;
         timeOver.SetActive(true);
         
     }

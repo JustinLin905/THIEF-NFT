@@ -7,8 +7,11 @@ using TMPro;
 public class MainMenu : MonoBehaviour
 {
     public TextMeshProUGUI scrollingText;
+    public TextMeshProUGUI walletText;
+    public TextMeshProUGUI playText;
     public Image fadeScreen;
     public static bool heistReady = true;
+    public static bool loggedIn = false;
     
     // Start is called before the first frame update
     void Start()
@@ -35,10 +38,42 @@ public class MainMenu : MonoBehaviour
 
     public void StartGame()
     {
-        if (heistReady)
+        if (heistReady && loggedIn)
         {
             StartCoroutine(LoadGame());
         }
+
+        else if (heistReady && !loggedIn)
+        {
+            playText.text = "LOGIN FIRST";
+        }
+
+        else if (!heistReady && loggedIn)
+        {
+            playText.text = "TOMORROW!";
+        }
+    }
+
+    public void GoToWallet()
+    {
+        if (loggedIn)
+        {
+            walletText.text = "LOADING...";
+            StartCoroutine(LoadWallet());
+        }
+
+        else
+        {
+            walletText.text = "LOGIN FIRST";
+        }
+        
+
+
+    }
+
+    public void Login()
+    {
+        loggedIn = true;
     }
 
     IEnumerator LoadGame() {
@@ -49,6 +84,13 @@ public class MainMenu : MonoBehaviour
         yield return new WaitForSeconds(2);
         UnityEngine.SceneManagement.SceneManager.LoadScene("Introduction");
     }
+
+    IEnumerator LoadWallet()
+    {
+        yield return new WaitForSeconds(3);
+        UnityEngine.SceneManagement.SceneManager.LoadScene("Wallet");
+    }
 }
+
 
 
